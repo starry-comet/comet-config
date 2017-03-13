@@ -1,0 +1,21 @@
+language: node_js
+
+node_js:
+- node
+- lts/boron
+- lts/argon
+
+before_script:
+- yarn compile
+
+before_deploy:
+- yarn pack --filename package.tgz
+
+deploy:
+  provider: releases
+  api_key:
+    secure: Md2j6LNzbC4faDjxWBlBIygpxKKkvZT1ikNfxFNMLIZDMgR/kG3vDs65+GWsoq+PwrcwYYIM23P4AutrXWkMonspoIfE/aJM+dugBsukjHhXLOMn5ajjgGCXzkmJ1tofSZxj2BLQvH1khA8wNBSlNVxw5vokfJbmRfgtsKi4JgzAy/FXfoiwZvb3+PKoODwCDXyax43kgXz87AHydCsvd55ymktAoBhYf+JRby0vpKouwKRBb2ieQqk47rI+rATHURhq4FkoG8QFNIH3/zF7z7SHZBoVTZOMx6MpLJF9ngX7dtG8xiCj6rI+BeTXjVhGbMe3pNJnRKgi6pH1GR3j0CrEHPkmHIclaO1hwOl1cUobkvpfVmMgCgd8hQCHJXvzwJTXyWrAuJBjCK4tb0Rb1QATO0H7Sbw73WaIGOl0SF4ps3VIXG7wx09qtcqQg9gg2ZduxxBmlzSwKIfAq5niqZoAK234RWSObPFeUJV/HC96XemgsA6302sm3y21KVB/zV6YT53anFN2gdgx+wTCs/hcwSTC6LRHkk6t2oYfSmtKqxIUSSVoybJIUcxhzoOlXClOsu29UtsE2RYh8ZASZRosgtIelWphwtE9ALY4ZL3ZDswIRGVNN4NitKgk30ISUfY+PS/WFVo+kGRfT+xCxm+JOt8Ht7Yu8rV6hj5tKbo=
+  file: package.tgz
+  on:
+    repo: starry-comet/comet-config
+    tags: true

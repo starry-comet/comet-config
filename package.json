@@ -1,0 +1,29 @@
+{
+  "name": "comet-config",
+  "version": "0.0.1",
+  "description": "configuration manager",
+  "main": "index.js",
+  "types": "build/index.d.ts",
+  "repository": "git@github.com:starry-comet/comet-config.git",
+  "author": "miton18 <pub-git.remi@rcdinfo.fr>",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "tsc",
+    "prepublish": "tsc",
+    "compile": "tsc",
+    "compile:w": "tsc -w",
+    "dev": "nodemon build/src/index.js",
+    "test": "ts-mocha --colors src/**/*.spec.ts",
+    "tdd": "ts-mocha --colors --reporter mocha-tap-reporter src/**/*.spec.ts"
+  },
+  "dependencies": {
+    "comet-ioc": "^2.0.0",
+    "typescript": "^2.2.1"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^7.0.8",
+    "mocha": "^3.2.0",
+    "ts-mocha": "^1.0.3"
+  }
+}
